@@ -34,6 +34,8 @@ RUN TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1+PTX" TORCH_NVCC_FLAGS="-Xfatbin -compr
     CMAKE_PREFIX_PATH="$(dirname $(which conda))/../" \
     python setup.py install
 
+RUN conda install torchvision -c soumith
+
 WORKDIR /workspace
 RUN chmod -R a+w /workspace
 ENV PYTHONPATH='/workspace:$PYTHONPATH'
